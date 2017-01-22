@@ -13,14 +13,14 @@ using SkinnedModel;
 namespace Prince_rapidity_99
 {
     /// <summary>
-    /// Šî’ê Game ƒNƒ‰ƒX‚©‚ç”h¶‚µ‚½AƒQ[ƒ€‚ÌƒƒCƒ“ ƒNƒ‰ƒX‚Å‚·B
+    /// åŸºåº• Game ã‚¯ãƒ©ã‚¹ã‹ã‚‰æ´¾ç”Ÿã—ãŸã€ã‚²ãƒ¼ãƒ ã®ãƒ¡ã‚¤ãƒ³ ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
     /// </summary>
     public class PlayComponent: Microsoft.Xna.Framework.DrawableGameComponent
     {
-        #region ƒtƒB[ƒ‹ƒh
+        #region ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
         
         /// <summary>
-        /// ƒJƒƒ‰
+        /// ã‚«ãƒ¡ãƒ©
         /// </summary>
         public Camera camera;
         private GraphicsDeviceManager graphicsDeviceManager;
@@ -71,26 +71,26 @@ namespace Prince_rapidity_99
         bool[] stoneRoadFlg = new bool[9];
         bool[] needleFlg = new bool[30];
         bool[] dartFlg = new bool[312];
-        bool[] stageFlg = new bool[100];
+        //bool[] stageFlg = new bool[20];
 
 
         Vector3 rot = Vector3.Zero;
 
-        #region ’Ç‰Á‚ÌƒtƒB[ƒ‹ƒh
+        #region è¿½åŠ ã®ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰
         DynamicVertexBuffer vertexBuffer = null;
         BasicEffect basicEffect = null;
 
-        const int numberOfVertex = 24;  // ’¸“_”
-        const int numberOfBox = 2;      // ” ‚Ì”
+        const int numberOfVertex = 24;  // é ‚ç‚¹æ•°
+        const int numberOfBox = 2;      // ç®±ã®æ•°
         int totalOfVertex;              //
 
-        const float boxSize = 20.0f;   // ” ‚Ì‚P•Ó‚Ì’·‚³
+        const float boxSize = 20.0f;   // ç®±ã®ï¼‘è¾ºã®é•·ã•
 
-        VertexPositionColor[] vertexes;@//
+        VertexPositionColor[] vertexes;ã€€//
 
         private GamePadState padState;   //
 
-        Vector3 boxPosition1;           // ” ‚ÌˆÊ’u
+        Vector3 boxPosition1;           // ç®±ã®ä½ç½®
         Vector3 boxPosition2;           //
         Vector3 boxPosition3;
 
@@ -112,9 +112,9 @@ namespace Prince_rapidity_99
 
         #endregion
 
-        #region ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+        #region ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
         /// <summary>
-        /// ƒRƒ“ƒXƒgƒ‰ƒNƒ^
+        /// ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿
         /// </summary>
         public PlayComponent(Game game,GraphicsDeviceManager graphicsManager,Camera MainCamera) : base(game)
         {
@@ -123,18 +123,18 @@ namespace Prince_rapidity_99
         }
         #endregion
 
-        #region ‰Šú‰»
+        #region åˆæœŸåŒ–
         /// <summary>
-        /// ‰Šú‰»‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÉƒtƒŒ[ƒ€ƒ[ƒN‚©‚çŒÄ‚Ño‚³‚ê‚Ü‚·
+        /// åˆæœŸåŒ–ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‹ã‚‰å‘¼ã³å‡ºã•ã‚Œã¾ã™
         /// </summary>
         public override void Initialize()
         {
-            // ƒCƒ“ƒvƒbƒgƒ}ƒl[ƒWƒƒ[‚Ì‰Šú‰»
+            // ã‚¤ãƒ³ãƒ—ãƒƒãƒˆãƒãƒãƒ¼ã‚¸ãƒ£ãƒ¼ã®åˆæœŸåŒ–
             InputManager.Initialize();
 
             Prince = new Player(camera);
 
-            #region //“¹ glassRoadPosition
+            #region //é“ glassRoadPosition
 
             //int glassRoadPoint = 0;
             for (int count = 0; count < 6; count++)
@@ -179,7 +179,7 @@ namespace Prince_rapidity_99
 
             #endregion
 
-            #region //ŠR“ª glassClifPosition
+            #region //å´–é ­ glassClifPosition
             glassClifPosition[0] = new Vector3(-40.0f, 90.0f, 0.0f);
             glassClifPosition[1] = new Vector3(80.0f, -10.00f, 0.0f);
             glassClifPosition[2] = new Vector3(320.0f, 30.0f, 0.0f);
@@ -187,7 +187,7 @@ namespace Prince_rapidity_99
             glassClifPosition[4] = new Vector3(620.0f, 30.0f, 0.0f);
             glassClifPosition[5] = new Vector3(640.0f, 10.0f, 0.0f);
             glassClifPosition[6] = new Vector3(900.0f, 70.0f, 0.0f);
-            //‚±‚Á‚©‚ç”½‘Î
+            //ã“ã£ã‹ã‚‰åå¯¾
             glassClifPosition[7] = new Vector3(120.0f, -10.0f, 0.0f);
             glassClifPosition[8] = new Vector3(220.0f, 10.0f, 0.0f);
             glassClifPosition[9] = new Vector3(240.0f, 29.79f, 0.0f);
@@ -200,7 +200,7 @@ namespace Prince_rapidity_99
             glassClifCount = 15;
             #endregion
 
-            #region //•Ç’†g dartClifPosition
+            #region //å£ä¸­èº« dartClifPosition
             dartClifCount = 0;
             for (int i = 0; i < 4; i++)
             { //4
@@ -274,7 +274,7 @@ namespace Prince_rapidity_99
 
             #endregion
 
-            #region  //Î•Ç@stonePosition
+            #region  //çŸ³å£ã€€stonePosition
 
             for (int i = 0; i < 8; i++)
             { //8
@@ -329,7 +329,7 @@ namespace Prince_rapidity_99
 
             #endregion
 
-            #region //Î“¹  stoneRoadPosition
+            #region //çŸ³é“  stoneRoadPosition
             stoneRoadCount = 0;
             for (int i = 0; i < 6; i++) //6
             {
@@ -344,7 +344,7 @@ namespace Prince_rapidity_99
 
             #endregion
 
-            #region //j@needle
+            #region //é‡ã€€needle
 
             needleCount = 0;
             needlePosition[0] = new Vector3(100.0f, -50.0f, 0.0f);
@@ -387,7 +387,7 @@ namespace Prince_rapidity_99
 
             #endregion
 
-            #region //“y dartPosition
+            #region //åœŸ dartPosition
             dartCount = 0;
             for (int i = 0; i < 5; i++)
             {
@@ -470,7 +470,7 @@ namespace Prince_rapidity_99
 
             #endregion
 
-            #region //ƒS[ƒ‹•Ó‚è stagePosition
+            #region //ã‚´ãƒ¼ãƒ«è¾ºã‚Š stagePosition
 
             stagePosition = new Vector3(1220.0f, -450.0f, 0.0f);
 
@@ -487,7 +487,7 @@ namespace Prince_rapidity_99
             {
                 glassClif[count] = new GlassClif(camera);
             }
-            //”½‘Î‚ÌŒü‚«‚Ìƒ‚ƒfƒ‹
+            //åå¯¾ã®å‘ãã®ãƒ¢ãƒ‡ãƒ«
             for (int count = 7; count < glassClifCount; count++)
             {
                 glassClif[count].modelRotation = new Vector3(0.0f, 180.0f, 0.0f);
@@ -529,39 +529,39 @@ namespace Prince_rapidity_99
 
         #endregion
 
-        #region ƒRƒ“ƒeƒ“ƒc‚Ì“Ç‚İ‚İˆ—
+        #region ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã®èª­ã¿è¾¼ã¿å‡¦ç†
         /// <summary>
-        /// ƒRƒ“ƒeƒ“ƒc“Ç‚İ‚İ‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÉƒtƒŒ[ƒ€ƒ[ƒN‚©‚çŒÄ‚Ño‚³‚ê‚Ü‚·
+        /// ã‚³ãƒ³ãƒ†ãƒ³ãƒ„èª­ã¿è¾¼ã¿ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‹ã‚‰å‘¼ã³å‡ºã•ã‚Œã¾ã™
         /// </summary>
         protected override void LoadContent()
         {            
             PrinceInitialize();
             Prince.Initialize_element();
             StageModelInitialize();
-            #region ’Ç‰Á‚Ì“Ç‚İ‚İ
+            #region è¿½åŠ ã®èª­ã¿è¾¼ã¿
             basicEffect = new BasicEffect(GraphicsDevice);
 
-            // ’¸“_ƒJƒ‰[‚ğ—LŒø‚É‚·‚é
+            // é ‚ç‚¹ã‚«ãƒ©ãƒ¼ã‚’æœ‰åŠ¹ã«ã™ã‚‹
             basicEffect.VertexColorEnabled = true;
 
             basicEffect.View = camera.View;
             basicEffect.Projection = camera.Projection;
-            // ’¸“_ƒoƒbƒtƒ@ì¬
+            // é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ä½œæˆ
             totalOfVertex = numberOfVertex * numberOfBox;
             vertexBuffer = new DynamicVertexBuffer(GraphicsDevice,
                 typeof(VertexPositionColor), totalOfVertex, BufferUsage.None);
 
             vertexes = new VertexPositionColor[totalOfVertex];
 
-            // ” ‚Ì‰ŠúˆÊ’u
+            // ç®±ã®åˆæœŸä½ç½®
             boxPosition1 = new Vector3(-20.0f, -10.0f, 0.0f);
             boxPosition2 = new Vector3(200.0f, 0.0f, 0.0f);
             boxPosition3 = new Vector3(100.0f, 0.0f, 300.0f);
 
-            CreateBox(0, boxSize, boxPosition1);    // ” 1
-            CreateBox(1, boxSize, boxPosition2);    // ” 2
+            CreateBox(0, boxSize, boxPosition1);    // ç®±1
+            CreateBox(1, boxSize, boxPosition2);    // ç®±2
 
-            // ’¸“_ƒoƒbƒtƒ@‚ğƒZƒbƒg
+            // é ‚ç‚¹ãƒãƒƒãƒ•ã‚¡ã‚’ã‚»ãƒƒãƒˆ
             vertexBuffer.SetData(vertexes, 0, vertexBuffer.VertexCount, SetDataOptions.NoOverwrite);
 
             box1.Min = new Vector3(-boxSize * 0.5f) + boxPosition1;
@@ -572,9 +572,9 @@ namespace Prince_rapidity_99
 
             #endregion
 
-            #region ƒ~ƒcƒnƒV‚Ì˜M‚Á‚½êŠB
+            #region ãƒŸãƒ„ãƒã‚·ã®å¼„ã£ãŸå ´æ‰€ã€‚
 
-            #region “yPosition
+            #region åœŸPosition
             stageRoadPositon[0] = new Vector3(1340.0f, -390.0f, 0.0f);
             stageRoadPositon[1] = new Vector3(1360.0f, -390.0f, 0.0f);
             stageRoadPositon[2] = new Vector3(1380.0f, -390.0f, 0.0f);
@@ -646,7 +646,7 @@ namespace Prince_rapidity_99
 
             #endregion
 
-            #region ÎPosition
+            #region çŸ³Position
             stageStonePosition[0] = new Vector3(1220.0f, -190.0f, 0.0f);
             stageStonePosition[1] = new Vector3(1240.0f, -190.0f, 0.0f);
             stageStonePosition[2] = new Vector3(1240.0f, -210.0f, 0.0f);
@@ -664,7 +664,7 @@ namespace Prince_rapidity_99
             stageStonePosition[14] = new Vector3(1580.0f, -290.0f, 0.0f);
             #endregion
 
-            #region //jposition
+            #region //é‡position
             stageNeedlePosition[0] = new Vector3(1220.0f, -330.0f, 0.0f);
             stageNeedlePosition[1] = new Vector3(1240.0f, -330.0f, 0.0f);
             stageNeedlePosition[2] = new Vector3(1260.0f, -330.0f, 0.0f);
@@ -703,10 +703,10 @@ namespace Prince_rapidity_99
 
         #endregion
 
-        #region ƒXƒe[ƒWƒf[ƒ^‚Ì“Ç‚İ‚İ
+        #region ã‚¹ãƒ†ãƒ¼ã‚¸ãƒ‡ãƒ¼ã‚¿ã®èª­ã¿è¾¼ã¿
         private void StageModelInitialize()
         {
-            //glassClif‚Ì“Ç‚İ‚İ
+            //glassClifã®èª­ã¿è¾¼ã¿
             for (int count = 0; count < glassClifCount; count++)
             {
                 glassClif[count].modelData = Game.Content.Load<Model>(@"Model\\StageModel\glass_clif");
@@ -714,7 +714,7 @@ namespace Prince_rapidity_99
                 glassClif[count].GlassClifLoad();
             }
 
-            //glassRoad‚Ì“Ç‚İ‚İ
+            //glassRoadã®èª­ã¿è¾¼ã¿
             for (int count = 0; count < glassRoadCount; count++)
             {
                 glassRoad[count].modelData = Game.Content.Load<Model>("Model\\StageModel\\glass_road");
@@ -722,7 +722,7 @@ namespace Prince_rapidity_99
                 glassRoad[count].GlassRoadLoad();
             }
 
-            //dartClif‚Ì“Ç‚İ‚İ
+            //dartClifã®èª­ã¿è¾¼ã¿
             for (int count = 0; count < dartClifCount; count++)
             {
                 dartClif[count].modelData = Game.Content.Load<Model>("Model\\StageModel\\dart_clif");
@@ -730,7 +730,7 @@ namespace Prince_rapidity_99
                 dartClif[count].DartClifLoad();
             }
 
-            //stone‚Ì“Ç‚İ‚İ
+            //stoneã®èª­ã¿è¾¼ã¿
             for (int count = 0; count < stoneCount; count++)
             {
                 stone[count].modelData = Game.Content.Load<Model>("Model\\StageModel\\stone");
@@ -738,7 +738,7 @@ namespace Prince_rapidity_99
                 stone[count].StoneLoad();
             }
 
-            //stoneRoad‚Ì“Ç‚İ‚İ
+            //stoneRoadã®èª­ã¿è¾¼ã¿
             for (int count = 0; count < stoneRoadCount; count++)
             {
                 stoneRoad[count].modelData = Game.Content.Load<Model>("Model\\StageModel\\stone_road");
@@ -746,7 +746,7 @@ namespace Prince_rapidity_99
                 stoneRoad[count].StoneRoadLoad();
             }
 
-            //needle‚Ì“Ç‚İ‚İ
+            //needleã®èª­ã¿è¾¼ã¿
             for (int count = 0; count < needleCount; count++)
             {
                 needle[count].modelData = Game.Content.Load<Model>("Model\\StageModel\\needle");
@@ -754,7 +754,7 @@ namespace Prince_rapidity_99
                 needle[count].NeedleLoad();
             }
 
-            //dart‚Ì“Ç‚İ‚İ
+            //dartã®èª­ã¿è¾¼ã¿
             for (int count = 0; count < dartCount; count++)
             {
                 dart[count].modelData = Game.Content.Load<Model>("Model\\StageModel\\dart");
@@ -762,7 +762,7 @@ namespace Prince_rapidity_99
                 dart[count].DartLoad();
             }
 
-            //stage‚Ì“Ç‚İ‚İ
+            //stageã®èª­ã¿è¾¼ã¿
             stage.modelData = Game.Content.Load<Model>("Model\\StageModel\\stage");
             stage.modelPosition = stagePosition;
             stage.StageLoad();
@@ -770,7 +770,7 @@ namespace Prince_rapidity_99
         }
         #endregion
 
-        #region ƒvƒŠƒ“ƒX‚Ì‰Šú‰»
+        #region ãƒ—ãƒªãƒ³ã‚¹ã®åˆæœŸåŒ–
         private void PrinceInitialize()
         {
             Prince.modelData = Game.Content.Load<Model>("Model\\prince_motiondata_base_1129");
@@ -778,23 +778,23 @@ namespace Prince_rapidity_99
         }
         #endregion
 
-        #region ƒRƒ“ƒeƒ“ƒc‚Ì‰ğ•úˆ—
+        #region ã‚³ãƒ³ãƒ†ãƒ³ãƒ„ã®è§£æ”¾å‡¦ç†
         /// <summary>
-        /// ƒRƒ“ƒeƒ“ƒc‰ğ•ú‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÉƒtƒŒ[ƒ€ƒ[ƒN‚©‚çŒÄ‚Ño‚³‚ê‚Ü‚·
+        /// ã‚³ãƒ³ãƒ†ãƒ³ãƒ„è§£æ”¾ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‹ã‚‰å‘¼ã³å‡ºã•ã‚Œã¾ã™
         /// </summary>
         protected override void UnloadContent()
         {
         }
         #endregion
 
-        #region ƒQ[ƒ€‚ÌXVˆ—
+        #region ã‚²ãƒ¼ãƒ ã®æ›´æ–°å‡¦ç†
         /// <summary>
-        /// ƒAƒbƒvƒf[ƒg‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÉƒtƒŒ[ƒ€ƒ[ƒN‚©‚çŒÄ‚Ño‚³‚ê‚Ü‚·
+        /// ã‚¢ãƒƒãƒ—ãƒ‡ãƒ¼ãƒˆã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‹ã‚‰å‘¼ã³å‡ºã•ã‚Œã¾ã™
         /// </summary>
-        /// <param name="gameTime">ƒQ[ƒ€ƒ^ƒCƒ€</param>
+        /// <param name="gameTime">ã‚²ãƒ¼ãƒ ã‚¿ã‚¤ãƒ </param>
         public override void Update(GameTime gameTime)
         {           
-            // “ü—Í‚ğæ“¾‚·‚é
+            // å…¥åŠ›ã‚’å–å¾—ã™ã‚‹
             Prince.PlayerUpdate(gameTime);
             camera.Update(gameTime);
 
@@ -843,13 +843,13 @@ namespace Prince_rapidity_99
             
         }
 
-        //” ‚ğ§ì‚·‚éƒƒ\ƒbƒh
+        //ç®±ã‚’åˆ¶ä½œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
         private void CreateBox(int boxNo, float length, Vector3 center)
         {
             float half = length / 2;
             int i = boxNo * numberOfVertex;
 
-            // ³–Ê
+            // æ­£é¢
             vertexes[i] = new VertexPositionColor(
                                 new Vector3(-half + center.X, -half + center.Y, half + center.Z), Color.Red); i++;
             vertexes[i] = new VertexPositionColor(
@@ -867,7 +867,7 @@ namespace Prince_rapidity_99
             vertexes[i] = new VertexPositionColor(
                                 new Vector3(-half + center.X, -half + center.Y, half + center.Z), Color.Red); i++;
 
-            // ã–Ê
+            // ä¸Šé¢
             vertexes[i] = new VertexPositionColor(
                                 new Vector3(-half + center.X, half + center.Y, -half + center.Z), Color.Blue); i++;
             vertexes[i] = new VertexPositionColor(
@@ -881,7 +881,7 @@ namespace Prince_rapidity_99
             vertexes[i] = new VertexPositionColor(
                                 new Vector3(-half + center.X, half + center.Y, -half + center.Z), Color.Blue); i++;
 
-            // ‰º–Ê
+            // ä¸‹é¢
             vertexes[i] = new VertexPositionColor(
                                 new Vector3(-half + center.X, -half + center.Y, half + center.Z), Color.Green); i++;
             vertexes[i] = new VertexPositionColor(
@@ -895,7 +895,7 @@ namespace Prince_rapidity_99
             vertexes[i] = new VertexPositionColor(
                                 new Vector3(-half + center.X, -half + center.Y, -half + center.Z), Color.Green); i++;
 
-            // ‰œ–Ê
+            // å¥¥é¢
             vertexes[i] = new VertexPositionColor(
                                 new Vector3(-half + center.X, half + center.Y, -half + center.Z), Color.Yellow); i++;
             vertexes[i] = new VertexPositionColor(
@@ -908,23 +908,23 @@ namespace Prince_rapidity_99
         }
         #endregion
 
-        #region “ü—Í‚É‚æ‚éˆ—
+        #region å…¥åŠ›ã«ã‚ˆã‚‹å‡¦ç†
         /// <summary>
-        /// “ü—Í‚É‚æ‚éˆ—
+        /// å…¥åŠ›ã«ã‚ˆã‚‹å‡¦ç†
         /// </summary>
 
         #endregion
 
-        #region ƒQ[ƒ€‚Ì•`‰æˆ—
+        #region ã‚²ãƒ¼ãƒ ã®æç”»å‡¦ç†
         /// <summary>
-        /// •`‰æ‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÉƒtƒŒ[ƒ€ƒ[ƒN‚©‚çŒÄ‚Ño‚³‚ê‚Ü‚·
+        /// æç”»ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã«ãƒ•ãƒ¬ãƒ¼ãƒ ãƒ¯ãƒ¼ã‚¯ã‹ã‚‰å‘¼ã³å‡ºã•ã‚Œã¾ã™
         /// </summary>
-        /// <param name="gameTime">ƒQ[ƒ€ƒ^ƒCƒ€</param>
+        /// <param name="gameTime">ã‚²ãƒ¼ãƒ ã‚¿ã‚¤ãƒ </param>
         public override void Draw(GameTime gameTime)
         {
             
 
-            //glassClif‚Ì•`‰æ
+            //glassClifã®æç”»
             for (int count = 0; count < glassClifCount; count++)
             {
                 glassClif[count].ModelDraw(gameTime);
@@ -934,7 +934,7 @@ namespace Prince_rapidity_99
                 //}
             }
 
-            //glassRoad‚Ì•`‰æ
+            //glassRoadã®æç”»
             for (int count = 0; count < glassRoadCount; count++)
             {
                 glassRoad[count].ModelDraw(gameTime);
@@ -944,7 +944,7 @@ namespace Prince_rapidity_99
                 //}
             }
 
-            //dartClif‚Ì•`‰æ
+            //dartClifã®æç”»
             for (int count = 0; count < dartClifCount; count++)
             {
                 dartClif[count].ModelDraw(gameTime);
@@ -953,31 +953,31 @@ namespace Prince_rapidity_99
                 //    GraphicsDevice.Clear(Color.YellowGreen);
                 //}
             }
-            //stone‚Ì•`‰æ
+            //stoneã®æç”»
             for (int count = 0; count < stoneCount; count++)
             {
                 stone[count].ModelDraw(gameTime);
             }
 
-            //stoneRoad‚Ì•`‰æ
+            //stoneRoadã®æç”»
             for (int count = 0; count < stoneRoadCount; count++)
             {
                 stoneRoad[count].ModelDraw(gameTime);
             }
 
-            //needle‚Ì•`‰æ
+            //needleã®æç”»
             for (int count = 0; count < needleCount; count++)
             {
                 needle[count].ModelDraw(gameTime);
             }
 
-            //dart‚Ì•`‰æ
+            //dartã®æç”»
             for (int count = 0; count < dartCount; count++)
             {
                 dart[count].ModelDraw(gameTime);
             }
 
-            //Stage‚Ì•`‰æ
+            //Stageã®æç”»
             stage.ModelDraw(gameTime);
 
             DefaultDraw();
@@ -986,16 +986,16 @@ namespace Prince_rapidity_99
             GraphicsDevice.SetVertexBuffer(vertexBuffer);
             foreach (EffectPass pass in basicEffect.CurrentTechnique.Passes)
             {
-                // ƒpƒX‚ÌŠJn
+                // ãƒ‘ã‚¹ã®é–‹å§‹
                 pass.Apply();
-                // LineList‚Å•`‰æ
+                // LineListã§æç”»
                 GraphicsDevice.DrawPrimitives(PrimitiveType.LineList, 0, totalOfVertex / 2);
             }
             base.Draw(gameTime);
         }
         #endregion
 
-        #region ƒQ[ƒ€•`‰æ‚Ì‰Šú‰»
+        #region ã‚²ãƒ¼ãƒ æç”»ã®åˆæœŸåŒ–
         private void DefaultDraw()
         {
             GraphicsDevice.BlendState = BlendState.AlphaBlend;
@@ -1004,7 +1004,7 @@ namespace Prince_rapidity_99
         }
         #endregion
 
-        #region I—¹ƒtƒ‰ƒO‚ğ•Ô‚·
+        #region çµ‚äº†ãƒ•ãƒ©ã‚°ã‚’è¿”ã™
         public bool IsEnded()
         {
             return ended;
