@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 2facda726c6deef439d895ae7a0f1920
+timeCreated: 1512813178
+licenseType: Free
+MonoImporter:
+  serializedVersion: 2
+  defaultReferences:
+  - Shot_effct: {fileID: 1747262742523184, guid: 85272206e07f5a140b74a125672783ca,
+      type: 2}
+  - CatchSE: {fileID: 8300000, guid: b6d4a2839a34b7e4cadc68312d55756e, type: 3}
+  - ShotSE: {fileID: 8300000, guid: dcbccf28d2ebe5c41b27fa3ccddda59c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
